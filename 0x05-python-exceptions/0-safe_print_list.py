@@ -1,8 +1,8 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 def safe_print_list(my_list=[1, 2, 3], x=0):
     j = 0
     try:
-        while(j <  x):
+        while j <  x:
             print(my_list[j], end='')
             j += 1
     except IndexError:
