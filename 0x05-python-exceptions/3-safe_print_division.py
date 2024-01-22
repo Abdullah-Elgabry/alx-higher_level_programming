@@ -8,3 +8,4 @@ def safe_print_division(a, b):
     finally:
         print("Inside div: {}".format(div))
         return (div)
+    return
