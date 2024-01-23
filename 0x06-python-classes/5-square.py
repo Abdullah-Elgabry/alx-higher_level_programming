@@ -39,8 +39,8 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """print the squre using the hash symp."""
+        """print the squre."""
         for y in range(self.size):
             for z in range(self.size):
                 print("#", end="\n" if z is self.size - 1 and y != z else "")
-            print()
+            print("")
