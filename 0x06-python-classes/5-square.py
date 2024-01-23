@@ -39,8 +39,8 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """print the squre."""
-        for y in range(self.size):
-            for z in range(self.size):
-                print("#", end="\n" if z is self.size - 1 and y != z else "")
-            print("")
+        """this func will draw the square by #."""
+        for i in range(self.size):
+            for j in range(self.size):
+                print("#", end="\n" if j is self.size - 1 and i != j else "")
+        print("")
