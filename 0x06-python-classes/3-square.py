@@ -20,9 +20,9 @@ class Square:
             raise ValueError("size must be >= 0")
         
     def area(self):
-        """function to get area of the square.
+        """get square function.
 
         Returns:
-            The size squared.
+            The size square size.
         """
         return self.__size ** 2
