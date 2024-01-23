@@ -32,12 +32,12 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Get the square area.
+        """the square area function.
 
         Returns:
-            square size.
+            will ret square size.
         """
-        return f"{self.__size ** 2}"
+        return self.__size ** 2
 
     def __eq__(self, other):
         return self.area() == other.area()
@@ -56,15 +56,3 @@ class Square:
 
     def __le__(self, other):
         return self.area() <= other.area()
-
-    def my_print(self):
-        """this func will draw the square by #."""
-        if self.__size == 0:
-            print("")
-            return
-
-        [print("") for x in range(0, self.__position[1])]
-        for x in range(0, self.__size):
-            [print(" ", end="") for j in range(0, self.__position[0])]
-            [print("#", end="") for k in range(0, self.__size)]
-            print("")
