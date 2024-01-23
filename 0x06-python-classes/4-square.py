@@ -9,16 +9,19 @@ class Square:
         """INIT instance.
         Args:
             size (int): represent the square size.
-        Raises:
-            TypeError: If the size is not an integer
-            ValueError: If size is < 0
         """
         self.__size = size
 
     @property
     def size(self):
-        """Getter or setter the square size."""
+        """the Prop for the square side length.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
         return self.__size
+
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
