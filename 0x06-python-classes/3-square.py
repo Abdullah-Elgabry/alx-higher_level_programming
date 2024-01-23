@@ -23,4 +23,4 @@ class Square:
         """
         this func will Returns the current area of the square.
         """
-        return f"{self.__size **2}"
+        return f"{self.__size ** 2}"
