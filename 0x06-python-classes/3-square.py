@@ -25,4 +25,4 @@ class Square:
         Returns:
             The size squared.
         """
-        return f"{self.__size ** 2}"
+        return self.__size ** 2
