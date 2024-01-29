@@ -57,8 +57,6 @@ class Rectangle:
                                 for x in range(self.__height))
         return string
 
-
-
     def __repr__(self):
         """func aims to re-build"""
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
