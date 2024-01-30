@@ -9,31 +9,31 @@ import sys
 
 def init_board(n):
     """set n x n init."""
-    board = []
-    [board.append([]) for l in range(n)]
-    [row.append(' ') for l in range(n) for row in board]
-    return (board)
+    empset = []
+    [empset.append([]) for s in range(n)]
+    [row.append(' ') for s in range(n) for row in empset]
+    return (empset)
 
 
-def board_deepcopy(board):
-    """this will get cpy for the chessface."""
-    if isinstance(board, list):
-        return list(map(board_deepcopy, board))
-    return (board)
-
-
-def get_solution(board):
-    """this func will get solved lst for the board."""
-    solution = []
-    for k in range(len(board)):
-        for lp in range(len(board)):
-            if board[k][lp] == "Q":
-                solution.append([k, lp])
+def get_solution(empset):
+    """this func will get sloved chess rep list."""
+    emppsd = []
+    for solx in range(len(empset)):
+        for sc in range(len(empset)):
+            if empset[solx][sc] == "Q":
+                emppsd.append([solx, sc])
                 break
-    return (solution)
+    return (emppsd)
 
 
-def out_put(board, row, col):
+def board_deepcopy(empset):
+    """this will get cpy for the chessface."""
+    if isinstance(empset, list):
+        return list(map(board_deepcopy, empset))
+    return (empset)
+
+
+def out_put(empset, row, col):
     """this func will ret the point in chess.
 
     Args:
@@ -41,49 +41,48 @@ def out_put(board, row, col):
         row: brev row.
         col: brev col.
     """
-    # out_put_ret forward
-    for lp in range(col + 1, len(board)):
-        board[row][lp] = "x"
-    # backwards out_put_ret
-    for lp in range(col - 1, -1, -1):
-        board[row][lp] = "x"
-    # below out_put_ret
-    for k in range(row + 1, len(board)):
-        board[k][col] = "x"
-    # above out_put_ret
-    for k in range(row - 1, -1, -1):
-        board[k][col] = "x"
-    # down -> right out_put_ret
-    lp = col + 1
-    for k in range(row + 1, len(board)):
-        if lp >= len(board):
+    for sc in range(col + 1, len(empset)):
+        empset[row][sc] = "x"
+
+    for sc in range(col - 1, -1, -1):
+        empset[row][sc] = "x"
+
+    for solx in range(row + 1, len(empset)):
+        empset[solx][col] = "x"
+
+    for solx in range(row - 1, -1, -1):
+        empset[solx][col] = "x"
+
+    sc = col + 1
+    for solx in range(row + 1, len(empset)):
+        if sc >= len(empset):
             break
-        board[k][lp] = "x"
-        lp += 1
-    # diagonally up <- left out_put_ret
-    lp = col - 1
-    for k in range(row - 1, -1, -1):
-        if lp < 0:
+        empset[solx][sc] = "x"
+        sc += 1
+
+    sc = col - 1
+    for solx in range(row - 1, -1, -1):
+        if sc < 0:
             break
-        board[k][lp]
-        lp -= 1
-    # out_put_ret diagonally up to the right
-    lp = col + 1
-    for k in range(row - 1, -1, -1):
-        if lp >= len(board):
+        empset[solx][sc]
+        sc -= 1
+
+    sc = col + 1
+    for solx in range(row - 1, -1, -1):
+        if sc >= len(empset):
             break
-        board[k][lp] = "x"
-        lp += 1
-    # diagonally down -< left out_put_ret
-    lp = col - 1
-    for k in range(row + 1, len(board)):
-        if lp < 0:
+        empset[solx][sc] = "x"
+        sc += 1
+
+    sc = col - 1
+    for solx in range(row + 1, len(empset)):
+        if sc < 0:
             break
-        board[k][lp] = "x"
-        lp -= 1
+        empset[solx][sc] = "x"
+        sc -= 1
 
 
-def the_solver_func(board, row, queens, solutions):
+def the_solver(empset, row, queens, solutions):
     """this func will be the solver func.
 
     Args:
@@ -94,16 +93,16 @@ def the_solver_func(board, row, queens, solutions):
     Returns:
         this will ret the game z
     """
-    if queens == len(board):
-        solutions.append(get_solution(board))
+    if queens == len(empset):
+        solutions.append(get_solution(empset))
         return (solutions)
 
-    for lp in range(len(board)):
-        if board[row][lp] == " ":
-            tmp_board = board_deepcopy(board)
-            tmp_board[row][lp] = "Q"
-            out_put(tmp_board, row, lp)
-            solutions = the_solver_func(tmp_board, row + 1,
+    for sc in range(len(empset)):
+        if empset[row][sc] == " ":
+            tmp_board = board_deepcopy(empset)
+            tmp_board[row][sc] = "Q"
+            out_put(tmp_board, row, sc)
+            solutions = the_solver(tmp_board, row + 1,
                                         queens + 1, solutions)
 
     return (solutions)
@@ -120,7 +119,7 @@ if __name__ == "__main__":
         print("N must be at least 4")
         sys.exit(1)
 
-    board = init_board(int(sys.argv[1]))
-    solutions = the_solver_func(board, 0, 0, [])
-    for z in solutions:
-        print(z)
+    empset = init_board(int(sys.argv[1]))
+    solutions = the_solver(empset, 0, 0, [])
+    for psd in solutions:
+        print(psd)
