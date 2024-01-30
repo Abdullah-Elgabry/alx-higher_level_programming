@@ -15,22 +15,22 @@ def init_board(n):
     return (empset)
 
 
+def get_solution(empset):
+    """this func will get sloved chess rep list."""
+    emppsd = []
+    for solx in range(len(empset)):
+        for sc in range(len(empset)):
+            if empset[solx][sc] == "Q":
+                emppsd.append([solx, sc])
+                break
+    return (emppsd)
+
+
 def board_deepcopy(empset):
     """this will get cpy for the chessface."""
     if isinstance(empset, list):
         return list(map(board_deepcopy, empset))
     return (empset)
-
-
-def get_solution(empset):
-    """this func will get sloved chess rep list."""
-    solution = []
-    for solx in range(len(empset)):
-        for sc in range(len(empset)):
-            if empset[solx][sc] == "Q":
-                solution.append([solx, sc])
-                break
-    return (solution)
 
 
 def out_put(empset, row, col):
@@ -121,5 +121,5 @@ if __name__ == "__main__":
 
     empset = init_board(int(sys.argv[1]))
     solutions = the_solver(empset, 0, 0, [])
-    for sol in solutions:
-        print(sol)
+    for psd in solutions:
+        print(psd)
