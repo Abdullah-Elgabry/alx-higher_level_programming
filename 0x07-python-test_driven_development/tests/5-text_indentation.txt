@@ -1,0 +1,135 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+the test with no slice:
+    >>> text_indentation("Hello Holberton")
+    Hello Holberton
+
+the test with spaces:
+    >>> text_indentation("Holberton          ")
+    Holberton
+
+the tests with the XX two spc:
+    >>> text_indentation("        Holberton")
+    Holberton
+    
+the tests with three spc:
+    >>> text_indentation("        Holberton          ")
+    Holberton
+    
+the tests with the n/a value:
+    >>> text_indentation("")
+
+the test witj n/a both:
+    >>> text_indentation("      ")
+
+the test with compl sentance:
+    >>> text_indentation("Hello: Holberton")
+    Hello:
+    <BLANKLINE>
+    Holberton
+
+the slice XX:
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+the test with the nl:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+the 2*nl test:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+the 3* nl test:
+    >>> text_indentation("Hello\n\n")
+    Hello
+    <BLANKLINE>
+
+the XX slices:
+    >>> text_indentation("Hello: Holberton? school. fooo")
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+
+the XX spaces tests:
+    >>> text_indentation("Hello   :     Holberton    ?    school.    fooo")
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+
+the XX space but -->:
+    >>> text_indentation("Hello   :     Holberton    ?    school.    fooo     ")
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+
+the slice only:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+the slice with symp:
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+the try no nonindent inside indent
+    >>> text_indentation("?Hello.")
+    ?
+    <BLANKLINE>
+    Hello.
+    <BLANKLINE>
+
+the nl exsist:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+the n/a test:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+the try no number:
+    >>> text_indentation(33)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
