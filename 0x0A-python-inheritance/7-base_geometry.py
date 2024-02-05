@@ -7,7 +7,7 @@ class BaseGeometry:
     def area(self):
         '''this will get the area of the shape.'''
         raise Exception('area() is not implemented')
-    
+
     def integer_validator(self, name, value):
         '''this func will rasie if there is any errors'''
         if type(value) != int:
