@@ -1,7 +1,7 @@
 Import function from module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Correct Class Type test:
+testing <class type>:
     >>> bg = BaseGeometry()
     >>> type(bg) == BaseGeometry
     True
@@ -40,12 +40,12 @@ integer_validator method called via class with no args:
     Traceback (most recent call last):
     TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
 
-integer_validator method arg test (0 args):
+testing the integer_validator func will zero args:
     >>> bg.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
     
-integer_validator method arg test (3 args):
+testing the integer_validator func will three args:
     >>> bg.integer_validator(1, 1, 1)
     Traceback (most recent call last):
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
@@ -99,10 +99,10 @@ integer_validator method ok value 2:
 integer_validator method empty string:
     >>> bg.integer_validator("", 1)
 
-integer_validator method empty string:
+tests if integer_validator n/a vsl:
     >>> bg.integer_validator(None, 1)
 
-integer_validator method tuple:
+checks if integer_validator has int input:
     >>> bg.integer_validator("Foo", (1, 2))
     Traceback (most recent call last):
     TypeError: Foo must be an integer
