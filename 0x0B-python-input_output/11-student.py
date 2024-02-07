@@ -27,9 +27,9 @@ class Student:
         return my_dict
 
     def reload_from_json(self, json):
-        """
-        this func just replace the value
-        """
+        '''this func replaces all attributes of the Student instance
+        with the ones in the json argument
+        '''
         for k, v in json.items():
             if k in self.__dict__:
                 self.__dict__[k] = v
