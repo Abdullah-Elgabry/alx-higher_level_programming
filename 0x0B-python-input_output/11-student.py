@@ -1,23 +1,24 @@
 #!/usr/bin/python3
-"""this module for student class"""
+'''task 10 module'''
 
 
 class Student:
-    """this class represent student functions"""
+    '''student class'''
     def __init__(self, first_name, last_name, age):
-        """constructor"""
+        '''Initialization of the student object'''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        this will get the dictionary back with all
-        student info
-        """
+        '''return a dictionary representation of a Student instance
+        If attrs is a list of strings, only attribute names contained
+        in this list must be retrieved.
+        Otherwise, all attributes must be retrieved
+        '''
         try:
-            for plt in attrs:
-                if type(plt) is not str:
+            for attr in attrs:
+                if type(attr) is not str:
                     return self.__dict__
         except Exception:
             return self.__dict__
@@ -28,9 +29,9 @@ class Student:
         return my_dict
 
     def reload_from_json(self, json):
-        """
-        this func just replace the value
-        """
-        for k, v in json.items():
-            if k in self.__dict__:
-                self.__dict__[k] = v
+        '''this function replaces all attributes of the Student instance
+        with the ones in the json argument
+        '''
+        for key, value in json.items():
+            if key in self.__dict__:
+                self.__dict__[key] = value
