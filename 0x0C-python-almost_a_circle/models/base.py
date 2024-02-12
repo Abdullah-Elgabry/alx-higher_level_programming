@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-'''this is for the base.py rep file'''
-from json import dumps, loads
+'''Module for Base class.'''
 import csv
+from json import dumps, loads
 
 
 class Base:
-    '''this is the base class desing'''
+    '''this is the base main clase.'''
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''Initializes a new instance of the Base class.'''
+        '''init function.'''
         if id is not None:
             self.id = id
         else:
@@ -19,7 +19,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''Converts a list of dictionaries into a JSON string.'''
+        '''this function will re arr the {}.'''
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
@@ -27,14 +27,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        '''Parses a JSON string and returns a list of dictionaries.'''
+        '''this is will ret dict.'''
         if json_string is None or not json_string:
             return []
         return loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''Serializes a list of objects into a JSON file.'''
+        '''this func will save the dict'''
         if list_objs is not None:
             list_objs = [o.to_dictionary() for o in list_objs]
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
@@ -42,7 +42,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        '''Creates an instance of a class from dict.'''
+        '''this will init dict'''
         from models.rectangle import Rectangle
         from models.square import Square
         if cls is Rectangle:
@@ -56,7 +56,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        '''Deserializes objects from a JSON file and returns a [] of instances.'''
+        '''this func will upload the file.'''
         from os import path
         file = "{}.json".format(cls.__name__)
         if not path.isfile(file):
@@ -66,7 +66,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        '''Serializes a list of objects into a CSV file.'''
+        '''this func will save the file as .csv file extention'''
         from models.rectangle import Rectangle
         from models.square import Square
         if list_objs is not None:
@@ -83,7 +83,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        '''Deserializes objects from a CSV file and returns a list of instances.'''
+        '''this will upload as .csv file.'''
         from models.rectangle import Rectangle
         from models.square import Square
         ret = []
