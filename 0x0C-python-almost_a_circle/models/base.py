@@ -43,8 +43,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         '''this will init dict'''
-        from models.square import Square
         from models.rectangle import Rectangle
+        from models.square import Square
         if cls is Rectangle:
             new = Rectangle(1, 1)
         elif cls is Square:
@@ -84,8 +84,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         '''this will upload as .csv file.'''
-        from models.square import Square
         from models.rectangle import Rectangle
+        from models.square import Square
         ret = []
         with open('{}.csv'.format(cls.__name__), 'r', newline='',
                   encoding='utf-8') as f:
@@ -126,4 +126,3 @@ class Base:
             t.end_fill()
 
         time.sleep(5)
-
