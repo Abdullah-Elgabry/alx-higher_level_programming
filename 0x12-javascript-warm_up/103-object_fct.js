@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-//This function will -> increments the integer value.
+// This function will -> increments the integer value.
 const myObject = {
   type: 'object',
   value: 12
