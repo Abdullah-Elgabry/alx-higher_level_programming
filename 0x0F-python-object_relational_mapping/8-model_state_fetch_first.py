@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-scriptw will prints 1st state obj. 
+scriptw will prints 1st state obj.
 
 """
 

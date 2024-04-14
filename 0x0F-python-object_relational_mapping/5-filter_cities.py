@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-script recieve state name and prints all 
+script recieve state name and prints all
 cities match it
+
 """
 
 import MySQLdb

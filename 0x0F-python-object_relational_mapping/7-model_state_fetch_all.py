@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-scriptw will prints * state obj. 
+scriptw will prints * state obj.
 """
 
 from sys import argv
