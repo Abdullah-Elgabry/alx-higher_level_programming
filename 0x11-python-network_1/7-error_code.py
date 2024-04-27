@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# this py code will takes in a URL, sends a request to the URL and
-# displays the body of the response
+"""this py code will takes in a URL, sends a request to the URL and
+displays the body of the response"""
 
 import sys
 import requests

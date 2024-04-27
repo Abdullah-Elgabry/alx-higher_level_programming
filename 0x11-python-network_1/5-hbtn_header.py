@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# this py code will takes in a URL,
+"""this py code will takes in a URL,
 # sends a request to the URL and displays the value of the variable
-# X-Request-Id in the response header
+# X-Request-Id in the response header"""
 
 import sys
 import requests

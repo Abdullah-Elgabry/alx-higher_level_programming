@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# this py code will takes 2 arguments in order to solve this challenge.
+"""this py code will takes 2 arguments in order to solve this challenge."""
 
 import sys
 import requests
