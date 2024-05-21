@@ -2,10 +2,9 @@
 // This script will prints the number of movies
 // where the character “Wedge Antilles” is present
 
-
 const req = require('request');
-function mov_inc (apiEndpoint) {
-  const ch_id = 18;
+function movInc (apiEndpoint) {
+  const chId = 18;
   req.get(apiEndpoint, function (error, response, body) {
     if (error) {
       console.log(error);
@@ -15,7 +14,7 @@ function mov_inc (apiEndpoint) {
       for (let k = 0; k < films.length; k++) {
         const characters = films[k].characters;
         for (let L = 0; L < characters.length; L++) {
-          if (characters[L].includes(ch_id)) {
+          if (characters[L].includes(chId)) {
             inc++;
           }
         }
@@ -29,5 +28,5 @@ const args = process.argv.slice(2);
 
 if (args.length === 1) {
   const apiEndpoint = args[0];
-  mov_inc(apiEndpoint);
+  movInc(apiEndpoint);
 }

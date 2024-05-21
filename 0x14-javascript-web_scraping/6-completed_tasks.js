@@ -1,7 +1,6 @@
 #!/usr/bin/node
 // This script will computes the number of tasks task_com by user id
 
-
 const req = require('request');
 const url = process.argv[2];
 
