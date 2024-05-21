@@ -6,11 +6,11 @@ const req = require('request');
 
 const url = 'https://swapi-api.hbtn.io/api/films/' + argv[2];
 
-function star_char (urls) {
+function starChar (urls) {
   const url = urls.shift();
   req(url, (error, response, body) => {
     if (urls.length) {
-      star_char(urls);
+      starChar(urls);
     }
     if (error) {
       console.log(error);
@@ -27,5 +27,5 @@ req(url, (error, response, body) => {
 
   const characters = JSON.parse(body).characters;
 
-  star_char(characters);
+  starChar(characters);
 });
